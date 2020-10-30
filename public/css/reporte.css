@@ -1,0 +1,342 @@
+/*@page {
+  margin-top: 2.5cm;
+  margin-left: 2.5cm;
+  margin-right: 2.5cm;
+  margin-bottom: 2.5cm;
+}
+table, tr, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+h3{
+  text-align: center;
+}
+
+.floatedTable {
+  float:left;
+}
+
+.row{
+  margin: 120px;
+}
+.row table{
+  width:100%
+}*/
+
+/*LOGO*/
+.logo img{
+    height: 70px;
+  }
+/* .containerTitle .header img {
+    float: left;
+    height: 70px;
+  }
+  
+.containerTitle .header h1 {
+    position: relative;
+   /* top: 18px;
+    left: 10px;*/
+  /*} */
+  
+  /*Titutlos*/
+  .containerTitle h2, p{
+    text-align: center;
+  }
+  .containerTitle .subtitle{
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .containerTitle .telephone{
+    font-size: 12px;
+  }
+  .nombreEmpresa{
+    text-align: left;
+    margin-left: 68px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .website{
+    text-align: left;
+    font-size: 12px;
+    text-decoration: underline;
+  }
+  
+  /*Tabla Date*/
+  .containerDate table{
+    width: 100%;
+  }
+  .containerDate{
+    margin-bottom: 30px;
+  }
+  .containerDate .date tr th{
+    background-color: #c1e9d6;
+  }
+  .containerDate .date .noBG{
+    background-color: white;
+  }
+  
+  
+  /*Tabla Supplier*/
+  .containerSupplier table {
+    width: 50%;
+  }
+  .containerSupplier table, th, td {
+    border: 1px solid black;
+  }
+  .containerSupplier table th {
+    width: 100px;
+    text-align: center;
+    border: 0px;
+  }
+  .containerSupplier table td {
+    text-align: center;
+    border: 0px;
+  }
+  
+  /*Tabla Products*/
+  .containerProducts{
+    margin-top: 20px;
+  }
+  .containerProducts table {
+    width: 100%;
+    text-align: center;
+  }
+  .containerProducts .width40{
+    width: 40px;
+  }
+  .containerProducts .width80{
+    width: 80px;
+  }
+  .containerProducts .products thead tr th{
+    background-color: #c1e9d6;
+  }
+  .containerProducts table td:nth-last-child(6),
+  .containerProducts table td:nth-last-child(7) {
+    text-align: right;
+  }
+  .noborders{
+    border: 0px;
+  }
+  
+  
+  /*Tabla Instructions*/
+  .containerInstruction table{
+    width: 100%;
+  }
+  .containerInstruction .instruction .specialIns{
+    width: 200x;
+  }
+  .containerInstruction .instruction .width100{
+    width: 100%;
+  }
+  
+  
+  /*Tabla InvoiceTo*/
+  /* .containerInvoice table{
+    width: 40%;
+  }
+  .containerInvoice table th {
+    width: 100px;
+  }
+  .containerInvoice .invoice tr td{
+    font-size: 11px;
+    border-top: 0px;
+    border-right: 1px;
+    border-left: 1px;
+    border-bottom: 0px;
+  }
+  .containerInvoice .invoice .primero td{
+    border-right: 0px;
+    border-top: 1px;
+    border-bottom: 1px;
+  }
+  .containerInvoice .invoice .ultimo td{
+    border-bottom: 1px;
+  } */
+
+ 
+
+  /*DIV contInvFirm*/
+
+  /*Tabla InvoiceTo*/
+  .invoice th {
+    width: 100px;
+  }
+  .invoice tr td{
+    font-size: 11px;
+    border-top: 0px;
+    border-right: 1px;
+    border-left: 1px;
+    border-bottom: 0px;
+  }
+  .invoice .primero td{
+    border-right: 0px;
+    border-top: 1px;
+    border-bottom: 1px;
+  }
+  .invoice .ultimo td{
+    border-bottom: 1px;
+  }
+
+  /*Tabla Requerido y Firma*/
+  .firmas tr th{
+    font-weight: normal;
+  }
+  
+  /*Tabla Requerido y Firma*/
+  /* .containerinfoOrder{
+    margin-top: 15px;
+  }
+  .containerinfoOrder table{
+    width: 50%;
+  }
+  .containerinfoOrder table tr th{
+    font-weight: normal;
+  } */
+  
+  /*Tabla Emails*/
+  .containerEmails{
+    margin-top: 50px;
+  }
+  .containerEmails table{
+    width: 100%;
+  }
+  .containerEmails table tr .txtform {
+    font-size: 11px;
+    font-weight: normal;
+  }
+  .containerEmails table tr .txtcompras{
+    font-weight: bold;
+  }
+  
+  /*Tabla Ship To*/
+  .containerShip table {
+    width: 40%;
+  }
+  .containerShip table, th, td {
+    border: 1px solid black;
+  }
+  .containerShip table th {
+    width: 100px;
+    text-align: center;
+    border: 0px;
+  }
+  .containerShip table td {
+    text-align: center;
+    border: 0px;
+  }
+
+/*------------------------------------------------*/
+.addColor{
+  background-color: #c1e9d6;
+}
+.noborders{
+  border: 0px;
+}
+.borderRTL{
+  border-bottom: 0px;
+}
+.borderRBL{
+  border-top: 0px;
+}
+.borderRL{
+  border-bottom: 1px;
+  border-top: 1px;
+}
+.borderBottom{
+  border-top: 1px;
+  border-left: 1px;
+  border-right: 1px;
+}
+.borderTop{
+  border-bottom: 1px;
+  border-left: 1px;
+}
+.borderLB{
+  border-top: 1px;
+  border-right: 1px;
+}
+.borderL{
+  border-top: 1px;
+  border-right: 1px;
+  border-bottom: 1px;
+}
+.borderT{
+  border-bottom: 1px;
+  border-right: 1px;
+}
+.borderR{
+  border-left: 1px;
+  border-bottom: 1px;
+  border-top: 1px;
+}
+.borderRB{
+  border-top: 1px;
+  border-left: 1px;
+}
+.textRight{
+  text-align: right;
+}
+
+/*tabla DAte*/
+/*.moveRight{
+  width: 571px;
+}*/
+.containerDate .date .width40{
+  width: 100px;
+}
+.containerDate .date .height40{
+  height: 25px;
+}
+.noBG{
+  background-color: white;
+}
+
+
+  /*Tabla supplierShip*/
+  .supplierShip{
+    width: 100%;
+  }
+  /*To*/
+  .supplierShip .width25{
+    width: 25px;
+  }
+  /*InfoSupplier*/
+  .supplierShip .width50{
+    width: 50px;
+  }
+  /*Blank*/
+  .supplierShip .width60{
+    width: 60px;
+  }
+   /*ShipTo*/
+  .supplierShip .width80{
+    width: 80px;
+  }
+   /*Blank*/
+  .supplierShip .width170{
+    width: 170px;
+  }
+
+
+  /*Tabla invoiceRequire*/
+  .invoiceRequire{
+    width: 100%;
+  }
+  .invoiceRequire .width80{
+    width: 250px;
+  }
+
+
+  /*Footer*/
+  .footer .width80{
+    width: 170px;
+  }
+  .footer .width90{
+    width: 230px;
+  }
+
+  /*.supplierShip {
+    border: 1px solid black;
+  border-collapse: collapse;
+  }*/

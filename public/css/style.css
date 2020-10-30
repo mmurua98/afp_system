@@ -1,0 +1,252 @@
+/*@page {
+  margin-top: 2.5cm;
+  margin-left: 2.5cm;
+  margin-right: 2.5cm;
+  margin-bottom: 2.5cm;
+}
+table, tr, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+h3{
+  text-align: center;
+}
+
+.floatedTable {
+  float:left;
+}
+
+.row{
+  margin: 120px;
+}
+.row table{
+  width:100%
+}*/
+
+/*LOGO*/
+/*.logo img{
+  height: 70px;
+}*/
+
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1 {
+  position: relative;
+ /* top: 18px;
+  left: 10px;*/
+}
+
+
+/*Titutlos*/
+.containerTitle h2, p{
+  text-align: center;
+}
+.containerTitle .subtitle{
+  font-weight: bold;
+  font-size: 20px;
+}
+.containerTitle .telephone{
+  font-size: 12px;
+}
+.nombreEmpresa{
+  text-align: left;
+  margin-left: 68px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.webiste{
+  text-align: left;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+/*Tabla Date*/
+.containerDate .date tr th{
+  background-color: #c1e9d6;
+}
+
+
+/*Tabla Supplier*/
+/* .containerSupplier table {
+  width: 50%;
+}
+.containerSupplier table, th, td {
+  border: 1px solid black;
+}
+.containerSupplier table th {
+  width: 100px;
+  text-align: center;
+  border: 0px;
+}
+.containerSupplier table td {
+  text-align: center;
+  border: 0px;
+} */
+
+table.suppliers {
+  width: 100%;
+}
+
+table.suppliers, th, td {
+  border: 1px solid black;
+}
+
+table.suppliers  th {
+  width: 100px;
+  text-align: center;
+  border: 0px;
+}
+table.suppliers td {
+  text-align: center;
+  border: 0px;
+}
+
+.td-15{
+  width: 15%;
+}
+
+.td-20{
+  width: 20%;
+}
+
+.td-25{
+  width: 25%;
+}
+
+.td-35{
+  width: 35%;
+}
+
+.td-50{
+  width: 50%;
+}
+
+
+.td-80{
+  width: 80%;
+}
+
+
+.td-100{
+  width: 100%;
+}
+
+.test{
+  float: left;
+}
+
+/*Tabla Products*/
+.containerProducts{
+  margin-top: 20px;
+}
+.containerProducts table {
+  width: 100%;
+  text-align: center;
+}
+.containerProducts .products thead tr th{
+  background-color: #c1e9d6;
+}
+.containerProducts table td:nth-last-child(6),
+.containerProducts table td:nth-last-child(7) {
+  text-align: right;
+}
+.noborders{
+  border: 0px;
+}
+
+
+/*Tabla Instructions*/
+.containerInstruction table{
+  width: 100%;
+}
+
+
+/*Tabla InvoiceTo*/
+.containerInvoice table{
+  width: 40%;
+}
+.containerInvoice table th {
+  width: 100px;
+}
+.containerInvoice .invoice tr td{
+  font-size: 11px;
+  border-top: 0px;
+  border-right: 1px;
+  border-left: 1px;
+  border-bottom: 0px;
+}
+.containerInvoice .invoice .primero td{
+  border-right: 0px;
+  border-top: 1px;
+  border-bottom: 1px;
+}
+.containerInvoice .invoice .ultimo td{
+  border-bottom: 1px;
+}
+/*.floated{
+  float: left;
+}*/
+
+/*Tabla Requerido y Firma*/
+.containerinfoOrder{
+  margin-top: 15px;
+}
+.containerinfoOrder table{
+  width: 50%;
+}
+.containerinfoOrder table tr th{
+  font-weight: normal;
+}
+
+/*Tabla Emails*/
+.containerEmails{
+  margin-top: 5px;
+}
+.containerEmails table{
+  width: 100%;
+}
+.containerEmails table tr .txtform {
+  font-size: 11px;
+  font-weight: normal;
+}
+.containerEmails table tr .txtcompras{
+  font-weight: bold;
+}
+
+/*Tabla Ship To*/
+.containerShip table {
+  width: 40%;
+}
+.containerShip table, th, td {
+  border: 1px solid black;
+}
+.containerShip table th {
+  width: 100px;
+  text-align: center;
+  border: 0px;
+}
+.containerShip table td {
+  text-align: center;
+  border: 0px;
+}
+
+table.ship {
+  width: 100%;
+}
+table.ship, th, td {
+  border: 1px solid black;
+}
+table.ship th {
+  width: 100px;
+  text-align: center;
+  border: 0px;
+}
+table.ship td {
+  text-align: center;
+  border: 0px;
+}
