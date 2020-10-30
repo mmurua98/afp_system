@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>AFP</b>',
+    'logo_img' => 'img/afpLogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xl',
@@ -231,11 +231,11 @@ return [
     */
 
     'menu' => [
-        [
+       /* [
             'text' => 'search',
             'search' => true,
             'topnav' => true,
-        ],
+        ],*/
         ['header' => 'ADMINISTRAR'],
         [
             'text'    => 'Admin',
