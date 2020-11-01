@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use Illuminate\Support\Facades\Gate;
 
 class EmployeeController extends Controller
 {
@@ -14,6 +15,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'employee.index');
         $employees = Employee::orderBy('id')->simplePaginate(15);
         return view('admin.employee', compact('employees'));
     }
@@ -36,6 +38,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('haveaccess', 'employee.store');
         Employee::create($request->all());
         return back();
     }
@@ -71,6 +74,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request)
     {
+        Gate::authorize('haveaccess', 'employee.update');
         $employees = Employee::findOrFail($request->id);
         $employees->update($request->all());
         return back();
@@ -84,6 +88,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Request $request)
     {
+        Gate::authorize('haveaccess', 'employee.destroy');
         $employees = Employee::findOrFail($request->id);
         $employees->delete($request->all());
         return back();

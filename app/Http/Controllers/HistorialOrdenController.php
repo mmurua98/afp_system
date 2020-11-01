@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use Illuminate\Support\Facades\Gate;
 
 class HistorialOrdenController extends Controller
 {
@@ -15,6 +16,7 @@ class HistorialOrdenController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'historial.index');
         $orders = Order::orderBy('id', 'desc')->simplePaginate(10);
         return view('orders.historial', compact('orders'));
     }

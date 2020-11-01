@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'AFP - Historial Orders')
 @section('content_header')
     <h1>Historial de Ordenes</h1>
 @endsection

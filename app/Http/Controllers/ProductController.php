@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
@@ -15,6 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'product.index');
         $products = Product::orderBy('id')->simplePaginate(15);
         $categories = Category::all();
         return view('admin.product', compact('products', 'categories'));
@@ -38,6 +40,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('haveaccess', 'product.store');
         Product::create($request->all());
         return back();
     }
@@ -73,6 +76,7 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
+        Gate::authorize('haveaccess', 'product.update');
         $products = Product::findOrFail($request->id);
         $products->update($request->all());
         return back();
@@ -86,6 +90,7 @@ class ProductController extends Controller
      */
     public function destroy(Request $request)
     {
+        Gate::authorize('haveaccess', 'product.destroy');
         $products = Product::findOrFail($request->id);
         $products->delete($request->all());
         return back();

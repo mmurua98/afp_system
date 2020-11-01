@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/stock.css') }}" />
 
-@section('title', 'Dashboard')
+@section('title', 'AFP - Stock')
 @section('content_header')
     <h1>Stock</h1>
 @endsection
@@ -49,8 +49,8 @@
                 tr +=`<tr>`
                 tr +=`  <td>${element.code}</td>`
                 tr +=`  <td>${element.name}</td>`
-                tr +=`  <td  style="text-align:center">${element.minimum}</td>`
-                tr +=`  <td  style="text-align:center">${element.maximum}</td>`
+                tr +=`  <td class="bg-danger" style="text-align:center">${element.minimum}</td>`
+                tr +=`  <td class="bg-success" style="text-align:center">${element.maximum}</td>`
                 
             if(porcentaje >= 85){
                 clase = 'green'

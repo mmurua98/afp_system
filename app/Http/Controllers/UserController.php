@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Supplier;
-use App\Models\TiposIva;
 use Illuminate\Http\Request;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 
-class SupplierController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,9 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        Gate::authorize('haveaccess', 'supplier.index');
-        $suppliers = Supplier::orderBy('id', 'asc')->simplePaginate(10);
-        $tiposIva = TiposIva::all();
-        return view('admin.supplier', compact('suppliers', 'tiposIva'));
+        Gate::authorize('haveaccess', 'user.index');
+        $users = User::with('roles')->orderBy('id', 'Desc')->SimplePaginate(10);
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -40,18 +39,16 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('haveaccess', 'supplier.store');
-        Supplier::create($request->all());
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Supplier  $supplier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Supplier $supplier)
+    public function show($id)
     {
         //
     }
@@ -59,40 +56,44 @@ class SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Supplier  $supplier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit(User $user)
     {
-        //
+        $roles = Role::orderBy('name')->get();
+        return view('user.edit', compact('roles','user'));
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Supplier  $supplier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
-        Gate::authorize('haveaccess', 'supplier.update');
-        $suppliers = Supplier::findOrFail($request->id);
-        $suppliers->update($request->all());
-        return back();
+        $request->validate([
+            'name' => 'required|max:50|unique:users,name,'.$user->id,
+            'email' => 'required|max:50|unique:users,email,'.$user->id
+        ]);
+        $user->update($request->all());
+
+        $user->roles()->sync($request->get('roles'));
+        return redirect()->route('user.index')->with('status_success', 'User updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Supplier  $supplier
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(User $user)
     {
-        Gate::authorize('haveaccess', 'supplier.destroy');
-        $suppliers = Supplier::findOrFail($request->id);
-        $suppliers->delete($request->all());
-        return back();
+        $user->delete();
+        return redirect()->route('user.index')->with('status_success', 'User successfully removed');
     }
 }

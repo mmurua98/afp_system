@@ -15,6 +15,7 @@ use App\Models\RequireEmployee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class OrderController extends Controller
 {
@@ -25,6 +26,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'order.index');
         $orders = Order::all();
         $products = Product::all();
         $suppliers = Supplier::with('tipoiva')->get();
@@ -50,6 +52,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('haveaccess', 'order.store');
         //$data2 = json_decode($request->getContent(), true);
         $data = (array) json_decode($request->getContent());
         $serie = 'N';

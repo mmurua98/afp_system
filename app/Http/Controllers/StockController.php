@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class StockController extends Controller
 {
@@ -14,6 +15,7 @@ class StockController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'stock.index');
         $stocks = DB::table('stocks')
             ->join('products', 'stocks.product_id', '=', 'products.id')
             ->select('stocks.id', 'products.code', 'products.name','products.minimum', 'products.maximum', 'stocks.stock')

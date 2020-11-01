@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'AFP - Products')
 @section('content_header')
     <h1>Products</h1>
 @endsection
@@ -81,9 +81,9 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Type</th>
-                        <th>Minimum</th>
-                        <th>Maximum</th>
-                        <th>Options</th>
+                        <th class="text-center">Minimum</th>
+                        <th class="text-center">Maximum</th>
+                        <th class="text-center">Options</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,9 +95,9 @@
                             <td>{{$product->name}}</td>
                             <td>${{$product->price}}</td>
                             <td>{{$product->type}}</td>
-                            <td class="bg-danger">{{$product->minimum}}</td>
-                            <td class="bg-success">{{$product->maximum}}</td>
-                            <td>
+                            <td class="bg-danger text-center">{{$product->minimum}}</td>
+                            <td class="bg-success text-center">{{$product->maximum}}</td>
+                            <td class="text-center">
                                 <button class="show-modal btn btn-warning btn sm" data-toggle="modal" data-target="#editModal" 
                                     data-id="{{$product->id}}"
                                     data-category_id="{{$product->category_id}}"
@@ -254,6 +254,10 @@
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
         });
+
     });
     
 </script>
+
+
+    

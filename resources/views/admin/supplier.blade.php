@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'AFP - Suppliers')
 @section('content_header')
     <h1>Suppliers</h1>
 @endsection

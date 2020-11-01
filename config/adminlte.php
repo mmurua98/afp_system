@@ -236,6 +236,23 @@ return [
             'search' => true,
             'topnav' => true,
         ],*/
+        ['header' => 'ACCESO'],
+        [
+            'text'    => 'Usuarios',
+            'icon'    => 'fas fa-fw fa-user-friends',
+            'submenu' => [
+                [
+                    'text'       => 'Roles',
+                    'icon_color' => 'pink',
+                    'url'        => 'role',
+                ],
+                [
+                    'text'       => 'Usuarios',
+                    'icon_color' => 'green',
+                    'url'        => 'user',
+                ],
+            ],
+        ],
         ['header' => 'ADMINISTRAR'],
         [
             'text'    => 'Admin',

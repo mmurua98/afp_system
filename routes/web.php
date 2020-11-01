@@ -27,6 +27,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
+/*Users*/
+Route::resource('/role',  'App\Http\Controllers\RoleController')->names('role');
+Route::resource('/user',  'App\Http\Controllers\UserController', ['except' => ['create','store']])->names('user');
+
 /*Employees*/
 Route::get('/employee', [App\Http\Controllers\EmployeeController::class, 'index'])->name('index');
 Route::post('/employee', [App\Http\Controllers\EmployeeController::class, 'store'])->name('employee.store');
@@ -50,6 +54,7 @@ Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])
 Route::post('/product', [App\Http\Controllers\ProductController::class, 'store'])->name('product.store');
 Route::put('/product', [App\Http\Controllers\ProductController::class, 'update'])->name('product.update');
 Route::delete('/product', [App\Http\Controllers\ProductController::class, 'destroy'])->name('product.destroy');
+
 
 /*Warehouses*/
 /*Route::get('/warehouse', [App\Http\Controllers\WarehouseController::class, 'index'])->name('index');

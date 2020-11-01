@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'AFP - Employee Require')
 @section('content_header')
     <h1>Employees That Can Require</h1>
 @endsection

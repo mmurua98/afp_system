@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'IVA')
 @section('content_header')
     <h1>IVA</h1>
 @endsection

@@ -10,6 +10,7 @@ use App\Models\MovimientoAlmacenDetalle;
 use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class SalidasProductoController extends Controller
 {
@@ -20,6 +21,7 @@ class SalidasProductoController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'salidas.index');
         $employees = Employee::all();
         $products = Product::all();
         $salidas = SalidasProducto::orderBy('id', 'desc')->simplePaginate(10);
@@ -44,6 +46,7 @@ class SalidasProductoController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('haveaccess', 'salidas.store');
         $id = Auth::id();
         /*SalidasProducto::create($request->all()); AQUI ESTAS GUARDANDO, ESTA BIEN PERO ESA FORMA NO NOS SIRVE PORQUE NO SABEMOS QUE ID TIENE,
         return back();*/
@@ -124,6 +127,7 @@ class SalidasProductoController extends Controller
      */
     public function update(Request $request)
     {
+        Gate::authorize('haveaccess', 'salidas.update');
         $salidas = SalidasProducto::findOrFail($request->id);
         $salidas->update($request->all());
         return back();
@@ -137,6 +141,7 @@ class SalidasProductoController extends Controller
      */
     public function destroy(Request $request)
     {
+        Gate::authorize('haveaccess', 'salidas.destroy');
         $salidas = SalidasProducto::findOrFail($request->id);
         $salidas->delete($request->all());
         return back();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TiposIva;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class TiposIvaController extends Controller
 {
@@ -14,6 +15,7 @@ class TiposIvaController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'iva.index');
         $tiposIva = TiposIva::all();
         return view('admin.iva', compact('tiposIva'));
     }
@@ -36,6 +38,7 @@ class TiposIvaController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('haveaccess', 'iva.store');
         TiposIva::create($request->all());
         return back();
     }
@@ -71,6 +74,7 @@ class TiposIvaController extends Controller
      */
     public function update(Request $request)
     {
+        Gate::authorize('haveaccess', 'iva.update');
         $tiposIva = TiposIva::findOrFail($request->id);
         $tiposIva->update($request->all());
         return back();
@@ -84,6 +88,7 @@ class TiposIvaController extends Controller
      */
     public function destroy(Request $request)
     {
+        Gate::authorize('haveaccess', 'iva.destroy');
         $tiposIva = TiposIva::findOrFail($request->id);
         $tiposIva->delete($request->all());
         return back();

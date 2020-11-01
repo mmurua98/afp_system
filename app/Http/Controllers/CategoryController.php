@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
@@ -14,6 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'category.index');
         $categories = Category::all();
         return view('admin.category', compact('categories'));
     }
@@ -36,6 +38,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('haveaccess', 'category.store');
         Category::create($request->all());
         return back();
     }
@@ -71,6 +74,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request)
     {
+        Gate::authorize('haveaccess', 'category.update');
         $categories = Category::findOrFail($request->id);
         $categories->update($request->all());
         return back();
@@ -84,6 +88,7 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request)
     {
+        Gate::authorize('haveaccess', 'category.destroy');
         $categories = Category::findOrFail($request->id);
         $categories->delete($request->all());
         return back();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class EntradasProductoController extends Controller
 {
@@ -14,13 +15,14 @@ class EntradasProductoController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'entradas.index');
         $entradas = DB::table('orders')
             ->join('order_details', 'orders.id', '=', 'order_details.order_id')
             ->join('products', 'order_details.product_id', '=', 'products.id')
             ->join('suppliers', 'orders.supplier_id', '=', 'suppliers.id')
             ->select('orders.po_number', 'suppliers.company', 'orders.date','products.code', 'products.name', 'order_details.quantity')
             ->orderBy('orders.id', 'desc')
-            ->simplePaginate(10);
+            ->simplePaginate(12);
         return view('inventario.entradas', ['entradas' => $entradas]);
     }
 

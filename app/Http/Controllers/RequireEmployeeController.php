@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RequireEmployee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RequireEmployeeController extends Controller
 {
@@ -14,6 +15,7 @@ class RequireEmployeeController extends Controller
      */
     public function index()
     {
+        Gate::authorize('haveaccess', 'require.index');
         $requireEmployees = RequireEmployee::all();
         return view('admin.require', compact('requireEmployees'));
     }
@@ -36,6 +38,7 @@ class RequireEmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('haveaccess', 'require.store');
         RequireEmployee::create($request->all());
         return back();
     }
@@ -71,6 +74,7 @@ class RequireEmployeeController extends Controller
      */
     public function update(Request $request)
     {
+        Gate::authorize('haveaccess', 'require.update');
         $requireEmployees = RequireEmployee::findOrFail($request->id);
         $requireEmployees->update($request->all());
         return back();
@@ -84,6 +88,7 @@ class RequireEmployeeController extends Controller
      */
     public function destroy(Request $request)
     {
+        Gate::authorize('haveaccess', 'require.destroy');
         $requireEmployees = RequireEmployee::findOrFail($request->id);
         $requireEmployees->delete($request->all());
         return back();
