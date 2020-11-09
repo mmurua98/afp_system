@@ -375,7 +375,7 @@
                 )
             })
             .then(function (response) {
-                //window.location.href = "/historial";
+                window.location.href = "/historial";
                 console.log(response);
             })
             .catch(function (error) {

@@ -23,7 +23,7 @@
                     
                     @foreach ($entradas as $entrada)
                         <tr>
-                            <td>{{$entrada->po_number}}</td>
+                            <td><a href="{{route('order.edit', $entrada->orderid)}}" target="_blank">{{$entrada->po_number}}</a></td>
                             <td>{{$entrada->company}}</td>
                             <td>{{$entrada->date}}</td>
                             <td>{{$entrada->code}}</td>
