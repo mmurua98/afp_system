@@ -77,9 +77,10 @@ Route::delete('/supplier', [App\Http\Controllers\SupplierController::class, 'des
 /*Orders*/
 Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('order.index');
 Route::post('/order', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
+Route::get('/order/{id}/edit', [App\Http\Controllers\OrderController::class, 'edit'])->name('order.edit');
+Route::post('/order/{id}/update', [App\Http\Controllers\OrderController::class, 'update'])->name('order.update');
 //Route::post('/order', [App\Http\Controllers\OrderController::class, 'saveOrder'])->name('order.saveOrder');
-/*Route::put('/order', [App\Http\Controllers\OrderController::class, 'update'])->name('order.update');
-Route::delete('/order', [App\Http\Controllers\OrderController::class, 'destroy'])->name('order.destroy');*/
+//Route::delete('/order', [App\Http\Controllers\OrderController::class, 'destroy'])->name('order.destroy');
 
 /*Salida Productos*/
 Route::get('/salidas', [App\Http\Controllers\SalidasProductoController::class, 'index'])->name('salidas.index');

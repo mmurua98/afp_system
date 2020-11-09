@@ -28,7 +28,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="category_id">Category:</label>
-                            <select class="form-control" name="category_id" id="category_id">
+                            <select class="form-control" name="category_id" id="category_id" required>
                                 <option value="" disabled selected>-- Seleccione una categoría--</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -37,27 +37,27 @@
                         </div>
                         <div class="form-group">
                             <label for="code">Code:</label>
-                            <input type="text" class="form-control" id="code" name="code">
+                            <input type="text" class="form-control" id="code" name="code" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="price">Price:</label>
-                            <input type="text" class="form-control" id="price" name="price">
+                            <input type="text" class="form-control" id="price" name="price" required>
                         </div>
                         <div class="form-group">
                             <label for="type">Type:</label>
-                            <input type="text" class="form-control" id="type" name="type">
+                            <input type="text" class="form-control" id="type" name="type" required>
                         </div>
                         <div class="form-group">
                             <label for="minimum">Minimum:</label>
-                            <input type="text" class="form-control" id="minimum" name="minimum">
+                            <input type="text" class="form-control" id="minimum" name="minimum" required>
                         </div>
                         <div class="form-group">
                             <label for="maximum">Maximum:</label>
-                            <input type="text" class="form-control" id="maximum" name="maximum">
+                            <input type="text" class="form-control" id="maximum" name="maximum" required>
                         </div>
 
                         <!-- Modal footer -->

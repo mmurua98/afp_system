@@ -56,6 +56,16 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="orderstatus_id">Status:</label>
+                    <select class="form-control" name="orderstatus_id" id="orderstatus_id" style="width: 250px;" disabled>
+                        @foreach($orderstatus as $status)
+                            <option value="{{ $status->id }}">{{ $status->name}}</option>
+                         @endforeach
+                    </select>
+                </div>
+            </div>
             
         </div>
     </div>
@@ -293,6 +303,7 @@
                 const data = {
                     supplier_id: $('#supplier_id').find(':selected').val(),
                     require_employee_id: $('#require_employee_id').find(':selected').val(),
+                    orderstatus_id: $('#orderstatus_id').find(':selected').val(),
                     description: $('#description').val(),
                     //total: productsDetail.reduce((sum, { price, quantity }) => sum + price * quantity, 0),
                     total: productsDetail.map(x => x.product_total).reduce(function(a, b){return (+a) + (+b);}),
@@ -304,6 +315,7 @@
                         JSON.stringify({
                             supplier_id: $('#supplier_id').find(':selected').val(),
                             require_employee_id: $('#require_employee_id').find(':selected').val(),
+                            orderstatus_id: $('#orderstatus_id').find(':selected').val(),
                             description: $('#description').val(),
                             //total: productsDetail.reduce((sum, { price, quantity }) => sum + price * quantity, 0),
                             total: productsDetail.map(x => x.product_total).reduce(function(a, b){return (+a) + (+b);}),

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
 
 class HistorialOrdenController extends Controller
 {
@@ -17,7 +18,12 @@ class HistorialOrdenController extends Controller
     public function index()
     {
         Gate::authorize('haveaccess', 'historial.index');
-        $orders = Order::orderBy('id', 'desc')->simplePaginate(10);
+        $orders = DB::table('orders')
+            ->join('orderstatus', 'orders.orderstatus_id','orderstatus.id')
+            ->join('suppliers', 'orders.supplier_id','suppliers.id')
+            ->select('orders.id','orders.po_number', 'orderstatus.name AS status', 'orders.date', 'suppliers.company', 'orders.total')
+            ->orderBy('orders.id', 'desc')
+            ->simplePaginate(10);
         return view('orders.historial', compact('orders'));
     }
 

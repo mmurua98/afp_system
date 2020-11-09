@@ -16,11 +16,22 @@ class EntradasProductoController extends Controller
     public function index()
     {
         Gate::authorize('haveaccess', 'entradas.index');
-        $entradas = DB::table('orders')
+        /*$entradas = DB::table('orders')
             ->join('order_details', 'orders.id', '=', 'order_details.order_id')
             ->join('products', 'order_details.product_id', '=', 'products.id')
             ->join('suppliers', 'orders.supplier_id', '=', 'suppliers.id')
             ->select('orders.po_number', 'suppliers.company', 'orders.date','products.code', 'products.name', 'order_details.quantity')
+            ->orderBy('orders.id', 'desc')
+            ->simplePaginate(12);*/
+        $entradas = DB::table('movimiento_almacen_detalles')
+            ->join('movimiento_almacens','movimiento_almacen_detalles.movimientoalmacen_id', '=', 'movimiento_almacens.id')
+            ->join('movement_types','movimiento_almacen_detalles.movement_type_id','=','movement_types.id')
+            ->join('products','movimiento_almacen_detalles.product_id','=','products.id')
+            ->join('orders','movimiento_almacens.order_id','=','orders.id')
+            ->join('suppliers','orders.supplier_id','=','suppliers.id')
+            ->select('movimiento_almacen_detalles.id','orders.id AS orderid','movement_types.name  AS movimiento','orders.po_number',
+                    'suppliers.company','products.code','products.name AS product', 'orders.date', 'movimiento_almacen_detalles.quantity')
+            ->where('movimiento_almacen_detalles.movement_type_id', '=', '1')
             ->orderBy('orders.id', 'desc')
             ->simplePaginate(12);
         return view('inventario.entradas', ['entradas' => $entradas]);

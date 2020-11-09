@@ -28,31 +28,35 @@
                         @csrf
                         <div class="form-group">
                             <label for="company">Company:</label>
-                            <input type="text" class="form-control" id="company" name="company">
+                            <input type="text" class="form-control" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="raz_social">Razón Social:</label>
+                            <input type="text" class="form-control" id="raz_social" name="raz_social" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone:</label>
-                            <input type="text" class="form-control" id="phone" name="phone">
+                            <input type="text" class="form-control" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label for="location">Location:</label>
-                            <input type="text" class="form-control" id="location" name="location">
+                            <input type="text" class="form-control" id="location" name="location" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="last_name">Lastname:</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name">
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email">
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="tipoiva_id">Iva:</label>
-                            <select class="form-control" name="tipoiva_id" id="tipoiva_id">
+                            <select class="form-control" name="tipoiva_id" id="tipoiva_id" required>
                                 <option value="" disabled selected>-- Seleccione un IVA--</option>
                                 @foreach($tiposIva as $iva)
                                     <option value="{{ $iva->id }}">{{ $iva->tipo }}</option>
@@ -77,6 +81,7 @@
                 <thead>
                     <tr>
                         <th>Company</th>
+                        <th>Raz.Social</th>
                         <th>Phone</th>
                         <th>Location</th>
                         <th>Name</th>
@@ -91,6 +96,7 @@
                     @foreach ($suppliers as $supplier)
                         <tr>
                             <td>{{$supplier->company}}</td>
+                            <td>{{$supplier->raz_social}}</td>
                             <td>{{$supplier->phone}}</td>
                             <td>{{$supplier->location}}</td>
                             <td>{{$supplier->name}}</td>
@@ -100,7 +106,8 @@
                             <td>
                                 <button class="show-modal btn btn-warning btn sm" data-toggle="modal" data-target="#editModal" 
                                     data-id="{{$supplier->id}}"
-                                    data-company="{{$supplier->company}}" 
+                                    data-company="{{$supplier->company}}"
+                                    data-raz_social="{{$supplier->raz_social}}" 
                                     data-phone="{{$supplier->phone}}" 
                                     data-location="{{$supplier->location}}"
                                     data-name="{{$supplier->name}}" 
@@ -112,6 +119,7 @@
                                 <button class="show-modal btn btn-danger btn sm" data-toggle="modal" data-target="#deleteModal" 
                                     data-id="{{$supplier->id}}"
                                     data-company="{{$supplier->company}}" 
+                                    data-raz_social="{{$supplier->raz_social}}" 
                                     data-phone="{{$supplier->phone}}" 
                                     data-location="{{$supplier->location}}"
                                     data-name="{{$supplier->name}}" 
@@ -150,6 +158,10 @@
                         <div class="form-group">
                             <label for="company">Company:</label>
                             <input type="text" class="form-control" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="raz_social">Razón Social:</label>
+                            <input type="text" class="form-control" id="raz_social" name="raz_social">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone:</label>
@@ -229,6 +241,7 @@
             var button = $(event.relatedTarget)
             var id = button.data('id')
             var company = button.data('company')
+            var raz_social = button.data('raz_social')
             var phone = button.data('phone')
             var location = button.data('location')
             var name = button.data('name')
@@ -239,6 +252,7 @@
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
             modal.find('.modal-body #company').val(company);
+            modal.find('.modal-body #raz_social').val(raz_social);
             modal.find('.modal-body #phone').val(phone);
             modal.find('.modal-body #location').val(location);
             modal.find('.modal-body #name').val(name);

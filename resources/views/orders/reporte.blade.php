@@ -234,6 +234,12 @@
         </table>
     </div>
 
+    <div class="razsocial">
+        @foreach ($orders as $order)
+            <h4>{{$order->raz_social}}</h4>
+        @endforeach
+    </div>
+
 
 
 </body>

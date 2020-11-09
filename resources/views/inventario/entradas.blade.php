@@ -27,7 +27,7 @@
                             <td>{{$entrada->company}}</td>
                             <td>{{$entrada->date}}</td>
                             <td>{{$entrada->code}}</td>
-                            <td>{{$entrada->name}}</td>
+                            <td>{{$entrada->product}}</td>
                             <td class="bg-success" style="text-align:center">{{$entrada->quantity}}</td>
                             {{-- <td>
                                 {{-- <button class="show-modal btn btn-danger btn sm" data-toggle="modal" data-target="#deleteModal" 

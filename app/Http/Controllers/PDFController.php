@@ -24,7 +24,7 @@ class PDFController extends Controller
         $orders = DB::table('orders')
             ->join('suppliers', 'orders.supplier_id','suppliers.id')
             ->join('require_employees', 'orders.require_employee_id','require_employees.id')
-            ->select('orders.id', 'orders.po_number','orders.date','suppliers.company','suppliers.phone', 'suppliers.email', 'suppliers.location',
+            ->select('orders.id', 'orders.po_number','orders.date','suppliers.company','suppliers.raz_social','suppliers.phone', 'suppliers.email', 'suppliers.location',
                     'orders.total', (DB::raw('CONCAT(require_employees.name," ",require_employees.last_name) AS name')))
             ->where('orders.id', '=', $id)
             ->get();

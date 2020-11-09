@@ -28,7 +28,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="employee_id">Employee:</label>
-                            <select class="form-control" name="employee_id" id="employee_id">
+                            <select class="form-control" name="employee_id" id="employee_id" required>
                                 <option value="" disabled selected>-- Seleccione un empleado--</option>
                                 @foreach($employees as $employee)
                                     <option value="{{ $employee->id }}">{{ $employee->code.' - '.$employee->name.' '.$employee->last_name}}</option>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="product_id">Product:</label>
-                            <select class="form-control" name="product_id" id="product_id">
+                            <select class="form-control" name="product_id" id="product_id" required>
                                 <option value="" disabled selected>-- Seleccione un producto--</option>
                                 @foreach($products as $product)
                                     <option value="{{ $product->id }}">{{ $product->name}}</option>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="quantity">Quantity:</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
+                            <input type="text" class="form-control" id="quantity" name="quantity" required>
                         </div>
 
                         <!-- Modal footer -->
@@ -69,8 +69,8 @@
                         <th>Date</th>
                         <th>Code</th>
                         <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Options</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Options</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,8 +81,8 @@
                             <td>{{$salida->date}}</td>
                             <td>{{$salida->product->code}}</td>
                             <td>{{$salida->product->name}}</td>
-                            <td class="bg-danger" style="text-align:center">{{$salida->quantity}}</td>
-                            <td>
+                            <td class="bg-danger text-center">{{$salida->quantity}}</td>
+                            <td class="text-center">
                                 <button class="show-modal btn btn-warning btn sm" data-toggle="modal" data-target="#editModal" 
                                     data-id="{{$salida->id}}"
                                     data-employee_id="{{$salida->employee_id}}" 
@@ -90,13 +90,13 @@
                                     data-quantity="{{$salida->quantity}}"> 
                                     <i class="fas fa-pencil-alt"></i>
                                 </button>
-                                <button class="show-modal btn btn-danger btn sm" data-toggle="modal" data-target="#deleteModal" 
+                                {{-- <button class="show-modal btn btn-danger btn sm" data-toggle="modal" data-target="#deleteModal" 
                                     data-id="{{$salida->id}}"
                                     data-employee_id="{{$salida->employee_id}}" 
                                     data-product_id="{{$salida->product_id}}"
                                     data-quantity="{{$salida->quantity}}"> 
                                     <i class="fa fa-trash"></i>
-                                </button>
+                                </button> --}}
                             </td>
                         </tr>
                     @endforeach
@@ -156,7 +156,7 @@
         </div>
     </div>
 
-    <!-- The Delete Modal -->
+    {{-- <!-- The Delete Modal -->
     <div class="modal fade danger" id="deleteModal">
         <div class="modal-dialog">
             <div class="modal-content bg-danger">
@@ -185,7 +185,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @stop
 
 <script>
@@ -204,13 +204,13 @@
             modal.find('.modal-body #quantity').val(quantity);
         });
 
-        $('#deleteModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
+        // $('#deleteModal').on('show.bs.modal', function(event) {
+        //     var button = $(event.relatedTarget)
+        //     var id = button.data('id')
 
-            var modal = $(this)
-            modal.find('.modal-body #id').val(id);
-        });
+        //     var modal = $(this)
+        //     modal.find('.modal-body #id').val(id);
+        // });
     });
     
 </script>

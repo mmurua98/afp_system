@@ -28,11 +28,11 @@
                         @csrf
                         <div class="form-group">
                             <label for="tipo">Tipo:</label>
-                            <input type="text" class="form-control" id="tipo" name="tipo">
+                            <input type="text" class="form-control" id="tipo" name="tipo" required>
                         </div>
                         <div class="form-group">
                             <label for="valor">Valor:</label>
-                            <input type="text" class="form-control" id="valor" name="valor">
+                            <input type="text" class="form-control" id="valor" name="valor" required>
                         </div>
 
                         <!-- Modal footer -->
