@@ -107,7 +107,7 @@
     </div>
 
       <!-- The Edit Modal -->
-     <div class="modal fade" id="editModal">
+     {{-- <div class="modal fade" id="editModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -123,7 +123,7 @@
                         @csrf
                         @method('PUT')
 
-                        <input type="hidden" id="id" name="id" value="{{$salida->id}}">
+                        <input type="hidden" id="id" name="id" value="{{$salidas->id}}">
                         <div class="form-group">
                             <label for="employee_id">Employee:</label>
                             <select class="form-control" name="employee_id" id="employee_id">
@@ -154,7 +154,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- <!-- The Delete Modal -->
     <div class="modal fade danger" id="deleteModal">

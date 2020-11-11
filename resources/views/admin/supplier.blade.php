@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label for="raz_social">Razón Social:</label>
-                            <input type="text" class="form-control" id="raz_social" name="raz_social" required>
+                            <input type="text" class="form-control" id="raz_social" name="raz_social">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone:</label>
@@ -44,15 +44,15 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
                         <div class="form-group">
                             <label for="last_name">Lastname:</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                            <input type="text" class="form-control" id="last_name" name="last_name">
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email">
                         </div>
                         <div class="form-group">
                             <label for="tipoiva_id">Iva:</label>

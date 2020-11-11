@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         Gate::authorize('haveaccess', 'product.index');
-        $products = Product::orderBy('id')->simplePaginate(15);
+        $products = Product::orderBy('code')->simplePaginate(15);
         $categories = Category::all();
         return view('admin.product', compact('products', 'categories'));
     }

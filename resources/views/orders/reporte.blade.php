@@ -54,7 +54,7 @@
             @foreach ($orders as $order)
             <tr>
                 <th class="width25 addColor text-center borderT">To:</th>
-                <td class="width50 text-center borderTop">{{$order->company}}</td>
+                <td class="width50 text-left borderTop">{{$order->company}}</td>
                 <th class="width60 noborders">&nbsp;</th>
                 <th class="text-center width80 addColor borderT">Ship To:</th>
                 <th class="width170 borderTop">&nbsp;</th>
@@ -64,14 +64,14 @@
             
             <tr>
                 <th class="text-center borderL">Numero:</th>
-                <td class="text-center borderR">{{$order->phone}}</td>
+                <td class="text-left borderR">{{$order->phone}}</td>
                 <td class="noborders">&nbsp;</td>
                 <td class="borderL">&nbsp;</td>
                 <td class="borderR">&nbsp;</td>
             </tr>
             <tr>
                 <th class="text-center borderL">Correo:</th>
-                <td class="text-center borderR">{{$order->email}}</td>
+                <td class="text-left borderR">{{$order->email}}</td>
                 <td class="noborders">&nbsp;</td>
                 <td class="borderL">&nbsp;</td>
                 <td class="borderR">&nbsp;</td>
