@@ -123,7 +123,7 @@
                         @csrf
                         @method('PUT')
 
-                        <input type="hidden" id="id" name="id" value="{{$salidas->id}}">
+                        <input type="hidden" id="id" name="id" value="{{$salida->id}}">
                         <div class="form-group">
                             <label for="employee_id">Employee:</label>
                             <select class="form-control" name="employee_id" id="employee_id">
