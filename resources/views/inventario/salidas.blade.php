@@ -107,7 +107,7 @@
     </div>
 
       <!-- The Edit Modal -->
-     {{-- <div class="modal fade" id="editModal">
+    <div class="modal fade" id="editModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -154,7 +154,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     {{-- <!-- The Delete Modal -->
     <div class="modal fade danger" id="deleteModal">
