@@ -179,14 +179,14 @@
                 </tr>
             @endforeach
             <tr>
-                <td class="borderRL">Blvd. Colosio #1, y Carrt Internacional</td>
+                <td class="borderRL">Blvd. Luis Donaldo Colosio M.</td>
                 <td class="noborders">&nbsp;</td>
                 <td class="noborders">&nbsp;</td>
                 <td class="noborders">&nbsp;</td>
                 <td class="noborders">&nbsp;</td>
             </tr>
             <tr>
-                <td class="borderRL">Parque Industrial Apolo</td>
+                <td class="borderRL">Colonia Industrial #2880</td>
                 <td class="noborders">&nbsp;</td>
                 <td class="textRight noborders">Cuenta:</td>
                 <td class="borderBottom">&nbsp;</td>
