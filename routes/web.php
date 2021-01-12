@@ -115,3 +115,4 @@ Route::get('/historial', [App\Http\Controllers\HistorialOrdenController::class, 
 //Route::get('/pdf', [App\Http\Controllers\PDFController::class, 'PDF'])->name('descargarPDF');
 Route::get('/pdf/order/{id}', [App\Http\Controllers\PDFController::class, 'PDF'])->name('descargarPDF');
 
+

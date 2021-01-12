@@ -57,12 +57,16 @@ class OrderController extends Controller
         Gate::authorize('haveaccess', 'order.store');
         //$data2 = json_decode($request->getContent(), true);
         $data = (array) json_decode($request->getContent());
-        $serie = 'N';
-        $folio = Order::where('supplier_id', $data['data']->supplier_id)->max('folio') + 1;
-        //$folio =DB::raw('IFNULL( downloads.is_download, 0) as is_download')
-        $po_number = $serie.'-'.$folio;
+        $serie = "N".date('y');
+        //$folio = Order::where('supplier_id', $data['data']->supplier_id)->max('folio') + 1;
+        //$folio = DB::raw('IFNULL(max(Folio) FROM orders WHERE supplier_id = 1 AND serie = "N" + (SELECT DATE_FORMAT(CURDATE(), "%y")))');
+        $folio = DB::table('orders')
+                ->select(DB::raw('IFNULL(max(folio),0) + 1 AS folio'))
+                ->where('supplier_id', '=', $data['data']->supplier_id)->where('serie', '=', "N- + (DATE_FORMAT(CURDATE(), '%y')")
+                ->get();
+        $po_number = $serie.'-'.$folio[0]->folio;
         $date = \getdate();
-
+        //dd($folio[0]->folio);
 
         //dd($data, $data['data'], $data['data']->details, $data['data']->supplier_id, $po_number);
         $id = Auth::id();
